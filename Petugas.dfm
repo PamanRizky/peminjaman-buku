@@ -1,9 +1,9 @@
-object FormAnggota: TFormAnggota
+object FormPetugas: TFormPetugas
   Left = 192
-  Top = 150
+  Top = 151
   Width = 1044
-  Height = 542
-  Caption = 'FormAnggota'
+  Height = 541
+  Caption = 'FormPetugas'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -17,9 +17,9 @@ object FormAnggota: TFormAnggota
   object lbl1: TLabel
     Left = 24
     Top = 24
-    Width = 153
+    Width = 100
     Height = 18
-    Caption = 'Nomor Kartu Anggota :'
+    Caption = 'Kode Petugas :'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -15
@@ -30,9 +30,9 @@ object FormAnggota: TFormAnggota
   object lbl2: TLabel
     Left = 24
     Top = 64
-    Width = 108
+    Width = 106
     Height = 18
-    Caption = 'Nama Anggota :'
+    Caption = 'Nama Petugas :'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -15
@@ -43,9 +43,9 @@ object FormAnggota: TFormAnggota
   object lbl3: TLabel
     Left = 328
     Top = 24
-    Width = 60
+    Width = 55
     Height = 18
-    Caption = 'Jurusan :'
+    Caption = 'Alamat :'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -15
@@ -56,9 +56,9 @@ object FormAnggota: TFormAnggota
   object lbl4: TLabel
     Left = 328
     Top = 64
-    Width = 70
+    Width = 61
     Height = 18
-    Caption = 'No Induk :'
+    Caption = 'No Telp :'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -15
@@ -66,7 +66,7 @@ object FormAnggota: TFormAnggota
     Font.Style = []
     ParentFont = False
   end
-  object Edtnokartuanggota: TEdit
+  object Edtkodepetugas: TEdit
     Left = 184
     Top = 24
     Width = 129
@@ -121,7 +121,7 @@ object FormAnggota: TFormAnggota
     Top = 168
     Width = 497
     Height = 241
-    DataSource = dsanggota
+    DataSource = dspetugas
     TabOrder = 6
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
@@ -132,26 +132,25 @@ object FormAnggota: TFormAnggota
     Columns = <
       item
         Expanded = False
-        FieldName = 'no_kartu_anggota'
-        Width = 100
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'nama_anggota'
-        Width = 100
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'jurusan'
-        Width = 100
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'no_induk'
+        FieldName = 'kode_petugas'
         Width = 80
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'nama_petugas'
+        Width = 100
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'alamat'
+        Width = 130
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'no_telp'
         Visible = True
       end>
   end
@@ -173,14 +172,14 @@ object FormAnggota: TFormAnggota
     TabOrder = 8
     OnClick = bprintClick
   end
-  object Edtjurusan: TEdit
+  object Edtalamat: TEdit
     Left = 416
     Top = 24
     Width = 129
     Height = 21
     TabOrder = 9
   end
-  object Edtnoinduk: TEdit
+  object Edtnotelp: TEdit
     Left = 416
     Top = 64
     Width = 129
@@ -205,12 +204,12 @@ object FormAnggota: TFormAnggota
     Connection = ZConnection1
     Active = True
     SQL.Strings = (
-      'select*from anggota')
+      'select*from petugas')
     Params = <>
     Left = 96
     Top = 424
   end
-  object frxDBDatasetAnggota: TfrxDBDataset
+  object frxDBDatasetPetugas: TfrxDBDataset
     UserName = 'frxDBDataset1'
     CloseDataSource = False
     DataSet = zqry1
@@ -227,7 +226,7 @@ object FormAnggota: TFormAnggota
     PrintOptions.Printer = 'Default'
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 45259.647033055600000000
-    ReportOptions.LastChange = 45259.696883900500000000
+    ReportOptions.LastChange = 45259.695714872700000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       'begin'
@@ -237,7 +236,7 @@ object FormAnggota: TFormAnggota
     Top = 424
     Datasets = <
       item
-        DataSet = frxDBDatasetAnggota
+        DataSet = frxDBDatasetPetugas
         DataSetName = 'frxDBDataset1'
       end>
     Variables = <>
@@ -270,7 +269,7 @@ object FormAnggota: TFormAnggota
           Font.Name = 'Arial'
           Font.Style = [fsBold]
           Memo.UTF8 = (
-            'LAPORAN DATA ANGGOTA')
+            'LAPORAN DATA PETUGAS')
           ParentFont = False
         end
       end
@@ -300,7 +299,7 @@ object FormAnggota: TFormAnggota
         object Memo3: TfrxMemoView
           Left = 95.311513960000000000
           Top = 15.118120000000000000
-          Width = 140.890400500000000000
+          Width = 137.110870500000000000
           Height = 26.456710000000000000
           ShowHint = False
           Font.Charset = DEFAULT_CHARSET
@@ -312,12 +311,12 @@ object FormAnggota: TFormAnggota
           Frame.Width = 2.000000000000000000
           HAlign = haCenter
           Memo.UTF8 = (
-            'NO KARTU ANGGOTA')
+            'KODE PETUGAS')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo4: TfrxMemoView
-          Left = 236.201914460000000000
+          Left = 232.422384460000000000
           Top = 15.118120000000000000
           Width = 146.466142770000000000
           Height = 26.456710000000000000
@@ -331,12 +330,12 @@ object FormAnggota: TFormAnggota
           Frame.Width = 2.000000000000000000
           HAlign = haCenter
           Memo.UTF8 = (
-            'NAMA ANGGOTA')
+            'NAMA PETUGAS')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo5: TfrxMemoView
-          Left = 382.668057230000000000
+          Left = 378.888527230000000000
           Top = 15.118120000000000000
           Width = 146.466142770000000000
           Height = 26.456710000000000000
@@ -350,12 +349,12 @@ object FormAnggota: TFormAnggota
           Frame.Width = 2.000000000000000000
           HAlign = haCenter
           Memo.UTF8 = (
-            'JURUSAN')
+            'ALAMAT')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo12: TfrxMemoView
-          Left = 529.134200000000000000
+          Left = 525.354670000000000000
           Top = 15.118120000000000000
           Width = 146.466142770000000000
           Height = 26.456710000000000000
@@ -369,7 +368,7 @@ object FormAnggota: TFormAnggota
           Frame.Width = 2.000000000000000000
           HAlign = haCenter
           Memo.UTF8 = (
-            'NO INDUK')
+            'NO TELEPON')
           ParentFont = False
           VAlign = vaCenter
         end
@@ -378,7 +377,7 @@ object FormAnggota: TFormAnggota
         Height = 26.456710000000000000
         Top = 188.976500000000000000
         Width = 718.110700000000000000
-        DataSet = frxDBDatasetAnggota
+        DataSet = frxDBDatasetPetugas
         DataSetName = 'frxDBDataset1'
         RowCount = 0
         object Memo6: TfrxMemoView
@@ -401,11 +400,11 @@ object FormAnggota: TFormAnggota
         end
         object Memo7: TfrxMemoView
           Left = 95.311513960000000000
-          Width = 140.890400500000000000
+          Width = 137.110870500000000000
           Height = 26.456710000000000000
           ShowHint = False
-          DataField = 'no_kartu_anggota'
-          DataSet = frxDBDatasetAnggota
+          DataField = 'kode_petugas'
+          DataSet = frxDBDatasetPetugas
           DataSetName = 'frxDBDataset1'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
@@ -416,17 +415,17 @@ object FormAnggota: TFormAnggota
           Frame.Width = 2.000000000000000000
           HAlign = haCenter
           Memo.UTF8 = (
-            '[frxDBDataset1."no_kartu_anggota"]')
+            '[frxDBDataset1."kode_petugas"]')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo8: TfrxMemoView
-          Left = 236.201914460000000000
+          Left = 232.422384460000000000
           Width = 146.466142770000000000
           Height = 26.456710000000000000
           ShowHint = False
-          DataField = 'nama_anggota'
-          DataSet = frxDBDatasetAnggota
+          DataField = 'nama_petugas'
+          DataSet = frxDBDatasetPetugas
           DataSetName = 'frxDBDataset1'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
@@ -437,17 +436,17 @@ object FormAnggota: TFormAnggota
           Frame.Width = 2.000000000000000000
           HAlign = haCenter
           Memo.UTF8 = (
-            '[frxDBDataset1."nama_anggota"]')
+            '[frxDBDataset1."nama_petugas"]')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo9: TfrxMemoView
-          Left = 382.668057230000000000
+          Left = 378.888527230000000000
           Width = 146.466142770000000000
           Height = 26.456710000000000000
           ShowHint = False
-          DataField = 'jurusan'
-          DataSet = frxDBDatasetAnggota
+          DataField = 'alamat'
+          DataSet = frxDBDatasetPetugas
           DataSetName = 'frxDBDataset1'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
@@ -458,17 +457,17 @@ object FormAnggota: TFormAnggota
           Frame.Width = 2.000000000000000000
           HAlign = haCenter
           Memo.UTF8 = (
-            '[frxDBDataset1."jurusan"]')
+            '[frxDBDataset1."alamat"]')
           ParentFont = False
           VAlign = vaCenter
         end
         object Memo13: TfrxMemoView
-          Left = 529.134200000000000000
+          Left = 525.354670000000000000
           Width = 146.466142770000000000
           Height = 26.456710000000000000
           ShowHint = False
-          DataField = 'no_induk'
-          DataSet = frxDBDatasetAnggota
+          DataField = 'no_telp'
+          DataSet = frxDBDatasetPetugas
           DataSetName = 'frxDBDataset1'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
@@ -479,7 +478,7 @@ object FormAnggota: TFormAnggota
           Frame.Width = 2.000000000000000000
           HAlign = haCenter
           Memo.UTF8 = (
-            '[frxDBDataset1."no_induk"]')
+            '[frxDBDataset1."no_telp"]')
           ParentFont = False
           VAlign = vaCenter
         end
@@ -491,7 +490,7 @@ object FormAnggota: TFormAnggota
       end
     end
   end
-  object dsanggota: TDataSource
+  object dspetugas: TDataSource
     DataSet = zqry1
     Left = 144
     Top = 432

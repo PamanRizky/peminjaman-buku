@@ -1,6 +1,6 @@
 object FormUser: TFormUser
-  Left = 444
-  Top = 311
+  Left = 192
+  Top = 151
   Width = 1044
   Height = 541
   Caption = 'Pendaftaran User'

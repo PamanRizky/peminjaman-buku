@@ -64,7 +64,6 @@ object FormLogin: TFormLogin
   end
   object zqry1: TZQuery
     Connection = ZConnection1
-    Active = True
     SQL.Strings = (
       'select * from users')
     Params = <>
@@ -73,11 +72,8 @@ object FormLogin: TFormLogin
   end
   object ZConnection1: TZConnection
     ControlsCodePage = cGET_ACP
-    AutoEncodeStrings = True
     Properties.Strings = (
-      'controls_cp=GET_ACP'
-      'AutoEncodeStrings=True')
-    Connected = True
+      'controls_cp=GET_ACP')
     HostName = 'localhost'
     Port = 3306
     Database = 'db_peminjaman_buku'

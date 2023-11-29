@@ -1,8 +1,8 @@
 object FormMainMenu: TFormMainMenu
   Left = 192
-  Top = 152
+  Top = 151
   Width = 1044
-  Height = 540
+  Height = 541
   Caption = 'Main Menu'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -26,6 +26,18 @@ object FormMainMenu: TFormMainMenu
       object FormAnggota1: TMenuItem
         Caption = 'Form Anggota'
         OnClick = FormAnggota1Click
+      end
+      object FormPetugas1: TMenuItem
+        Caption = 'Form Petugas'
+        OnClick = FormPetugas1Click
+      end
+      object FormDenda1: TMenuItem
+        Caption = 'Form Denda'
+        OnClick = FormDenda1Click
+      end
+      object FormPengembalian1: TMenuItem
+        Caption = 'Form Pengembalian'
+        OnClick = FormPengembalian1Click
       end
     end
   end
