@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TfrxReport Version="4.12.6" DotMatrixReport="False" IniFile="\Software\Fast Reports" PreviewOptions.Buttons="4095" PreviewOptions.Zoom="1" PrintOptions.Printer="Default" PrintOptions.PrintOnSheet="0" ReportOptions.CreateDate="45259.5865213657" ReportOptions.Description.Text="" ReportOptions.LastChange="45259.6243568982" ScriptLanguage="PascalScript" ScriptText.Text="begin&#13;&#10;&#13;&#10;end." PropData="044C65667403B00103546F70022808446174617365747301010C3400000020446174615365743D22667278444244617461736574312220446174615365744E616D653D2266727844424461746173657431220000095661726961626C65730100055374796C650100">
+  <TfrxDataPage Name="Data" Height="1000" Left="0" Top="0" Width="1000"/>
+  <TfrxReportPage Name="Page1" PaperWidth="210" PaperHeight="297" PaperSize="9" LeftMargin="10" RightMargin="10" TopMargin="10" BottomMargin="10" ColumnWidth="0" ColumnPositions.Text="" HGuides.Text="" VGuides.Text="">
+    <TfrxReportTitle Name="ReportTitle1" Height="45.35436" Left="0" Top="18.89765" Width="718.1107">
+      <TfrxMemoView Name="Memo1" Left="245.66945" Top="11.33859" Width="215.43321" Height="18.89765" ShowHint="False" Font.Charset="1" Font.Color="0" Font.Height="-19" Font.Name="Arial" Font.Style="1" ParentFont="False" Text="LAPORAN DATA USER"/>
+    </TfrxReportTitle>
+    <TfrxPageHeader Name="PageHeader1" Height="41.57483" Left="0" Top="86.92919" Width="718.1107">
+      <TfrxMemoView Name="Memo2" Left="132.28355" Top="15.11812" Width="42.39809396" Height="26.45671" ShowHint="False" Font.Charset="1" Font.Color="0" Font.Height="-13" Font.Name="Arial" Font.Style="0" Frame.Typ="15" Frame.Width="2" HAlign="haCenter" ParentFont="False" VAlign="vaCenter" Text="NO"/>
+      <TfrxMemoView Name="Memo3" Left="174.68164396" Top="15.11812" Width="53.9612105" Height="26.45671" ShowHint="False" Font.Charset="1" Font.Color="0" Font.Height="-13" Font.Name="Arial" Font.Style="0" Frame.Typ="15" Frame.Width="2" HAlign="haCenter" ParentFont="False" VAlign="vaCenter" Text="ID"/>
+      <TfrxMemoView Name="Memo4" Left="228.64285446" Top="15.11812" Width="146.46614277" Height="26.45671" ShowHint="False" Font.Charset="1" Font.Color="0" Font.Height="-13" Font.Name="Arial" Font.Style="0" Frame.Typ="15" Frame.Width="2" HAlign="haCenter" ParentFont="False" VAlign="vaCenter" Text="USERNAME"/>
+      <TfrxMemoView Name="Memo5" Left="375.10899723" Top="15.11812" Width="146.46614277" Height="26.45671" ShowHint="False" Font.Charset="1" Font.Color="0" Font.Height="-13" Font.Name="Arial" Font.Style="0" Frame.Typ="15" Frame.Width="2" HAlign="haCenter" ParentFont="False" VAlign="vaCenter" Text="PASSWORD"/>
+    </TfrxPageHeader>
+    <TfrxMasterData Name="MasterData1" Height="26.45671" Left="0" Top="188.9765" Width="718.1107" ColumnWidth="0" ColumnGap="0" DataSet="frxDBDataset1" DataSetName="frxDBDataset1" RowCount="0">
+      <TfrxMemoView Name="Memo6" Left="132.28355" Top="0" Width="42.39809396" Height="26.45671" ShowHint="False" Font.Charset="1" Font.Color="0" Font.Height="-13" Font.Name="Arial" Font.Style="0" Frame.Typ="15" Frame.Width="2" HAlign="haCenter" ParentFont="False" VAlign="vaCenter" Text="[Line]"/>
+      <TfrxMemoView Name="Memo7" Left="174.68164396" Top="0" Width="53.9612105" Height="26.45671" ShowHint="False" DataField="id" DataSet="frxDBDataset1" DataSetName="frxDBDataset1" Font.Charset="1" Font.Color="0" Font.Height="-13" Font.Name="Arial" Font.Style="0" Frame.Typ="15" Frame.Width="2" HAlign="haCenter" ParentFont="False" VAlign="vaCenter" Text="[frxDBDataset1.&#34;id&#34;]"/>
+      <TfrxMemoView Name="Memo8" Left="228.64285446" Top="0" Width="146.46614277" Height="26.45671" ShowHint="False" DataField="username" DataSet="frxDBDataset1" DataSetName="frxDBDataset1" Font.Charset="1" Font.Color="0" Font.Height="-13" Font.Name="Arial" Font.Style="0" Frame.Typ="15" Frame.Width="2" HAlign="haCenter" ParentFont="False" VAlign="vaCenter" Text="[frxDBDataset1.&#34;username&#34;]"/>
+      <TfrxMemoView Name="Memo9" Left="375.10899723" Top="0" Width="146.46614277" Height="26.45671" ShowHint="False" DataField="password" DataSet="frxDBDataset1" DataSetName="frxDBDataset1" Font.Charset="1" Font.Color="0" Font.Height="-13" Font.Name="Arial" Font.Style="0" Frame.Typ="15" Frame.Width="2" HAlign="haCenter" ParentFont="False" VAlign="vaCenter" Text="[frxDBDataset1.&#34;password&#34;]"/>
+    </TfrxMasterData>
+    <TfrxFooter Name="Footer1" Height="41.57483" Left="0" Top="238.11039" Width="718.1107">
+      <TfrxMemoView Name="Memo10" Left="461.10266" Top="11.33859" Width="158.74026" Height="18.89765" ShowHint="False" Text="JUMLAH DATA USERS :"/>
+      <TfrxMemoView Name="Memo11" Left="623.62245" Top="11.33859" Width="94.48825" Height="18.89765" ShowHint="False" Text="[SUM(&#60;frxDBDataset1.&#34;id&#34;&#62;,MasterData1)]"/>
+    </TfrxFooter>
+  </TfrxReportPage>
+</TfrxReport>
