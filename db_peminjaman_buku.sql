@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 30, 2023 at 02:25 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Waktu pembuatan: 30 Nov 2023 pada 23.24
+-- Versi server: 10.4.28-MariaDB
+-- Versi PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `anggota`
+-- Struktur dari tabel `anggota`
 --
 
 CREATE TABLE `anggota` (
@@ -35,17 +35,20 @@ CREATE TABLE `anggota` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `anggota`
+-- Dumping data untuk tabel `anggota`
 --
 
 INSERT INTO `anggota` (`no_kartu_anggota`, `nama_anggota`, `jurusan`, `no_induk`) VALUES
 (1, 'Wahyu', 'Teknik Informatika', 1123),
-(2, 'Raib', 'Sistem Informasi', 1122);
+(2, 'Raib', 'Sistem Informasi', 1122),
+(3, 'Herli', 'Teknik Informatika', 1133),
+(4, 'Jannah', 'Sistem Informasi', 1144),
+(5, 'Rizky Aulia', 'Teknik Informatika', 1155);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `buku`
+-- Struktur dari tabel `buku`
 --
 
 CREATE TABLE `buku` (
@@ -59,7 +62,7 @@ CREATE TABLE `buku` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `buku`
+-- Dumping data untuk tabel `buku`
 --
 
 INSERT INTO `buku` (`kode_buku`, `judul_buku`, `pengarang`, `penerbit_tempat_tahun`, `sumber_pengadaan`, `tgl_terima`, `kondisi_buku`) VALUES
@@ -69,7 +72,7 @@ INSERT INTO `buku` (`kode_buku`, `judul_buku`, `pengarang`, `penerbit_tempat_tah
 -- --------------------------------------------------------
 
 --
--- Table structure for table `denda`
+-- Struktur dari tabel `denda`
 --
 
 CREATE TABLE `denda` (
@@ -81,19 +84,20 @@ CREATE TABLE `denda` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `denda`
+-- Dumping data untuk tabel `denda`
 --
 
 INSERT INTO `denda` (`no_denda`, `tgl_denda`, `jenis_denda`, `jumlah_denda`, `no_kembali`) VALUES
-(1, '2023-11-20', '0', 10000, 1),
+(1, '2023-11-20', 'Hilang', 10000, 1),
 (2, '2023-11-29', 'Hilang', 80000, 2),
 (3, '2023-11-29', 'terlambat', 7000, 3),
-(4, '2023-11-29', 'terlambat', 2000, 4);
+(4, '2023-11-29', 'terlambat', 2000, 4),
+(5, '2023-12-01', 'terlambat', 5000, 5);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `detail_isi`
+-- Struktur dari tabel `detail_isi`
 --
 
 CREATE TABLE `detail_isi` (
@@ -103,17 +107,20 @@ CREATE TABLE `detail_isi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `detail_isi`
+-- Dumping data untuk tabel `detail_isi`
 --
 
 INSERT INTO `detail_isi` (`no_pinjam`, `kode_buku`, `jenis_buku`) VALUES
+(1, 1, 'Karya Ilmiah'),
 (2, 1, 'Karya Ilmiah'),
-(3, 2, 'Fiksi');
+(3, 2, 'Fiksi'),
+(4, 2, 'Fiksi'),
+(5, 2, 'Fiksi');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `peminjaman`
+-- Struktur dari tabel `peminjaman`
 --
 
 CREATE TABLE `peminjaman` (
@@ -124,16 +131,20 @@ CREATE TABLE `peminjaman` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `peminjaman`
+-- Dumping data untuk tabel `peminjaman`
 --
 
 INSERT INTO `peminjaman` (`no_pinjam`, `tgl_pinjam`, `no_kartu_anggota`, `kode_petugas`) VALUES
-(1, '2023-11-30', 2, 2);
+(1, '2023-11-30', 2, 2),
+(2, '2023-11-20', 1, 1),
+(3, '2023-11-21', 3, 2),
+(4, '2023-11-22', 4, 4),
+(5, '2023-11-23', 5, 2);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pengembalian`
+-- Struktur dari tabel `pengembalian`
 --
 
 CREATE TABLE `pengembalian` (
@@ -143,17 +154,20 @@ CREATE TABLE `pengembalian` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `pengembalian`
+-- Dumping data untuk tabel `pengembalian`
 --
 
 INSERT INTO `pengembalian` (`no_kembali`, `tgl_kembali`, `no_pinjam`) VALUES
 (1, '2023-11-29', 1),
-(2, '2023-11-21', 2);
+(2, '2023-11-21', 2),
+(3, '2023-11-30', 3),
+(4, '2023-12-01', 4),
+(5, '2023-11-25', 5);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `petugas`
+-- Struktur dari tabel `petugas`
 --
 
 CREATE TABLE `petugas` (
@@ -164,17 +178,20 @@ CREATE TABLE `petugas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `petugas`
+-- Dumping data untuk tabel `petugas`
 --
 
 INSERT INTO `petugas` (`kode_petugas`, `nama_petugas`, `alamat`, `no_telp`) VALUES
 (1, 'Ali', 'Bumi', '0877291219'),
-(2, 'Selly', 'Matahari', '0879323982');
+(2, 'Selly', 'Matahari', '0879323982'),
+(3, 'Sabarudin', 'Jl.Petani', '087755554444'),
+(4, 'Wardah', 'Jl.SMP', '082177774444'),
+(5, 'Zakiah', 'Jl.W.Gala', '087855552211');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Struktur dari tabel `users`
 --
 
 CREATE TABLE `users` (
@@ -184,44 +201,47 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `users`
+-- Dumping data untuk tabel `users`
 --
 
 INSERT INTO `users` (`id`, `username`, `password`) VALUES
 (1, 'admin', 'pass'),
-(2, 'ubahjuga', 'ubah');
+(2, 'ubahjuga', 'ubah'),
+(3, 'user', 'user'),
+(4, 'rizky', 'akuganteng'),
+(5, 'motor1005', 'amiiki098');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `anggota`
+-- Indeks untuk tabel `anggota`
 --
 ALTER TABLE `anggota`
   ADD PRIMARY KEY (`no_kartu_anggota`);
 
 --
--- Indexes for table `buku`
+-- Indeks untuk tabel `buku`
 --
 ALTER TABLE `buku`
   ADD PRIMARY KEY (`kode_buku`);
 
 --
--- Indexes for table `denda`
+-- Indeks untuk tabel `denda`
 --
 ALTER TABLE `denda`
   ADD PRIMARY KEY (`no_denda`);
 
 --
--- Indexes for table `detail_isi`
+-- Indeks untuk tabel `detail_isi`
 --
 ALTER TABLE `detail_isi`
   ADD PRIMARY KEY (`no_pinjam`),
   ADD KEY `kode_buku` (`kode_buku`);
 
 --
--- Indexes for table `peminjaman`
+-- Indeks untuk tabel `peminjaman`
 --
 ALTER TABLE `peminjaman`
   ADD PRIMARY KEY (`no_pinjam`),
@@ -229,45 +249,45 @@ ALTER TABLE `peminjaman`
   ADD KEY `kode_petugas` (`kode_petugas`);
 
 --
--- Indexes for table `pengembalian`
+-- Indeks untuk tabel `pengembalian`
 --
 ALTER TABLE `pengembalian`
   ADD PRIMARY KEY (`no_kembali`);
 
 --
--- Indexes for table `petugas`
+-- Indeks untuk tabel `petugas`
 --
 ALTER TABLE `petugas`
   ADD PRIMARY KEY (`kode_petugas`);
 
 --
--- Indexes for table `users`
+-- Indeks untuk tabel `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `detail_isi`
+-- Ketidakleluasaan untuk tabel `detail_isi`
 --
 ALTER TABLE `detail_isi`
   ADD CONSTRAINT `detail_isi_ibfk_1` FOREIGN KEY (`kode_buku`) REFERENCES `buku` (`kode_buku`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `peminjaman`
+-- Ketidakleluasaan untuk tabel `peminjaman`
 --
 ALTER TABLE `peminjaman`
   ADD CONSTRAINT `peminjaman_ibfk_1` FOREIGN KEY (`no_kartu_anggota`) REFERENCES `anggota` (`no_kartu_anggota`) ON DELETE CASCADE ON UPDATE CASCADE,
