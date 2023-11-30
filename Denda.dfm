@@ -215,10 +215,21 @@ object FormDenda: TFormDenda
     Time = 45259.708314722220000000
     TabOrder = 11
   end
+  object btn1: TBitBtn
+    Left = 648
+    Top = 144
+    Width = 75
+    Height = 33
+    Caption = '&Close'
+    TabOrder = 12
+    OnClick = btn1Click
+  end
   object ZConnection1: TZConnection
     ControlsCodePage = cGET_ACP
+    AutoEncodeStrings = True
     Properties.Strings = (
-      'controls_cp=GET_ACP')
+      'controls_cp=GET_ACP'
+      'AutoEncodeStrings=True')
     Connected = True
     HostName = 'localhost'
     Port = 3306
@@ -255,7 +266,7 @@ object FormDenda: TFormDenda
     PrintOptions.Printer = 'Default'
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 45259.647033055600000000
-    ReportOptions.LastChange = 45259.734238738400000000
+    ReportOptions.LastChange = 45261.241368877320000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       'begin'
@@ -298,7 +309,7 @@ object FormDenda: TFormDenda
           Font.Name = 'Arial'
           Font.Style = [fsBold]
           Memo.UTF8 = (
-            'LAPORAN DATA ANGGOTA')
+            'LAPORAN DATA DENDA')
           ParentFont = False
         end
       end

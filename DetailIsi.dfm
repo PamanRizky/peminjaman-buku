@@ -1,9 +1,9 @@
-object FormPengembalian: TFormPengembalian
+object FormDetailIsi: TFormDetailIsi
   Left = 192
-  Top = 149
+  Top = 152
   Width = 1044
-  Height = 543
-  Caption = 'FormPengembalian'
+  Height = 540
+  Caption = 'FormDetailIsi'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -17,32 +17,6 @@ object FormPengembalian: TFormPengembalian
   object lbl1: TLabel
     Left = 24
     Top = 24
-    Width = 83
-    Height = 18
-    Caption = 'No Kembali :'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -15
-    Font.Name = 'Tahoma'
-    Font.Style = []
-    ParentFont = False
-  end
-  object lbl2: TLabel
-    Left = 24
-    Top = 64
-    Width = 117
-    Height = 18
-    Caption = 'Tanggal Kembali :'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -15
-    Font.Name = 'Tahoma'
-    Font.Style = []
-    ParentFont = False
-  end
-  object lbl3: TLabel
-    Left = 328
-    Top = 24
     Width = 76
     Height = 18
     Caption = 'No Pinjam :'
@@ -53,9 +27,35 @@ object FormPengembalian: TFormPengembalian
     Font.Style = []
     ParentFont = False
   end
-  object Edtnokembali: TEdit
-    Left = 184
-    Top = 24
+  object lbl3: TLabel
+    Left = 23
+    Top = 66
+    Width = 102
+    Height = 18
+    Caption = 'Kode Anggota :'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -15
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+  end
+  object lbl4: TLabel
+    Left = 323
+    Top = 26
+    Width = 78
+    Height = 18
+    Caption = 'Jenis Buku :'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -15
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+  end
+  object Edtnopinjam: TEdit
+    Left = 156
+    Top = 27
     Width = 129
     Height = 21
     TabOrder = 0
@@ -101,7 +101,7 @@ object FormPengembalian: TFormPengembalian
     Top = 168
     Width = 497
     Height = 241
-    DataSource = dsanggota
+    DataSource = dsdetailisi
     TabOrder = 5
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
@@ -111,23 +111,20 @@ object FormPengembalian: TFormPengembalian
     OnCellClick = dbgrd1CellClick
     Columns = <
       item
-        Alignment = taCenter
-        Expanded = False
-        FieldName = 'no_kembali'
-        Width = 100
-        Visible = True
-      end
-      item
-        Alignment = taCenter
-        Expanded = False
-        FieldName = 'tgl_kembali'
-        Width = 100
-        Visible = True
-      end
-      item
-        Alignment = taCenter
         Expanded = False
         FieldName = 'no_pinjam'
+        Width = 100
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'kode_buku'
+        Width = 100
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'jenis_buku'
         Width = 100
         Visible = True
       end>
@@ -150,26 +147,36 @@ object FormPengembalian: TFormPengembalian
     TabOrder = 7
     OnClick = bprintClick
   end
-  object Edtnopinjam: TEdit
-    Left = 416
-    Top = 24
-    Width = 129
+  object cbb1: TComboBox
+    Left = 158
+    Top = 68
+    Width = 130
     Height = 21
+    ItemHeight = 13
     TabOrder = 8
   end
-  object dtp1: TDateTimePicker
-    Left = 184
-    Top = 64
-    Width = 129
+  object Edtjenisbuku: TEdit
+    Left = 421
+    Top = 26
+    Width = 121
     Height = 21
-    Date = 45259.833535949070000000
-    Time = 45259.833535949070000000
     TabOrder = 9
+  end
+  object btn1: TBitBtn
+    Left = 648
+    Top = 112
+    Width = 75
+    Height = 33
+    Caption = '&Close'
+    TabOrder = 10
+    OnClick = btn1Click
   end
   object ZConnection1: TZConnection
     ControlsCodePage = cGET_ACP
+    AutoEncodeStrings = True
     Properties.Strings = (
-      'controls_cp=GET_ACP')
+      'controls_cp=GET_ACP'
+      'AutoEncodeStrings=True')
     Connected = True
     HostName = 'localhost'
     Port = 3306
@@ -184,12 +191,12 @@ object FormPengembalian: TFormPengembalian
     Connection = ZConnection1
     Active = True
     SQL.Strings = (
-      'select*from pengembalian')
+      'select*from detail_isi')
     Params = <>
     Left = 96
     Top = 424
   end
-  object frxDBDatasetAnggota: TfrxDBDataset
+  object frxdbdtstAnggota: TfrxDBDataset
     UserName = 'frxDBDataset1'
     CloseDataSource = False
     DataSet = zqry1
@@ -197,7 +204,7 @@ object FormPengembalian: TFormPengembalian
     Left = 264
     Top = 424
   end
-  object frxReport1: TfrxReport
+  object frxrprt1: TfrxReport
     Version = '4.12.6'
     DotMatrixReport = False
     IniFile = '\Software\Fast Reports'
@@ -206,7 +213,7 @@ object FormPengembalian: TFormPengembalian
     PrintOptions.Printer = 'Default'
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 45259.647033055600000000
-    ReportOptions.LastChange = 45259.907276030090000000
+    ReportOptions.LastChange = 45260.888791076400000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       'begin'
@@ -216,7 +223,7 @@ object FormPengembalian: TFormPengembalian
     Top = 424
     Datasets = <
       item
-        DataSet = frxDBDatasetAnggota
+        DataSet = frxdbdtstAnggota
         DataSetName = 'frxDBDataset1'
       end>
     Variables = <>
@@ -238,9 +245,9 @@ object FormPengembalian: TFormPengembalian
         Top = 18.897650000000000000
         Width = 718.110700000000000000
         object Memo1: TfrxMemoView
-          Left = 234.330860000000000000
+          Left = 219.212740000000000000
           Top = 11.338590000000000000
-          Width = 347.716760000000000000
+          Width = 287.244280000000000000
           Height = 18.897650000000000000
           ShowHint = False
           Font.Charset = DEFAULT_CHARSET
@@ -249,7 +256,7 @@ object FormPengembalian: TFormPengembalian
           Font.Name = 'Arial'
           Font.Style = [fsBold]
           Memo.UTF8 = (
-            'LAPORAN DATA PENGEMBALIAN')
+            'LAPORAN DATA DETAIL ISI')
           ParentFont = False
         end
       end
@@ -291,7 +298,7 @@ object FormPengembalian: TFormPengembalian
           Frame.Width = 2.000000000000000000
           HAlign = haCenter
           Memo.UTF8 = (
-            'NO KEMBALI')
+            'NO PINJAM')
           ParentFont = False
           VAlign = vaCenter
         end
@@ -310,7 +317,7 @@ object FormPengembalian: TFormPengembalian
           Frame.Width = 2.000000000000000000
           HAlign = haCenter
           Memo.UTF8 = (
-            'TANGGAL KEMBALI')
+            'KODE BUKU')
           ParentFont = False
           VAlign = vaCenter
         end
@@ -329,7 +336,7 @@ object FormPengembalian: TFormPengembalian
           Frame.Width = 2.000000000000000000
           HAlign = haCenter
           Memo.UTF8 = (
-            'NO PINJAM')
+            'JENIS BUKU')
           ParentFont = False
           VAlign = vaCenter
         end
@@ -338,7 +345,7 @@ object FormPengembalian: TFormPengembalian
         Height = 26.456710000000000000
         Top = 188.976500000000000000
         Width = 718.110700000000000000
-        DataSet = frxDBDatasetAnggota
+        DataSet = frxdbdtstAnggota
         DataSetName = 'frxDBDataset1'
         RowCount = 0
         object Memo6: TfrxMemoView
@@ -364,50 +371,8 @@ object FormPengembalian: TFormPengembalian
           Width = 140.890400500000000000
           Height = 26.456710000000000000
           ShowHint = False
-          DataField = 'no_kembali'
-          DataSet = frxDBDatasetAnggota
-          DataSetName = 'frxDBDataset1'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Arial'
-          Font.Style = []
-          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
-          Frame.Width = 2.000000000000000000
-          HAlign = haCenter
-          Memo.UTF8 = (
-            '[frxDBDataset1."no_kembali"]')
-          ParentFont = False
-          VAlign = vaCenter
-        end
-        object Memo8: TfrxMemoView
-          Left = 292.894864460000000000
-          Width = 146.466142770000000000
-          Height = 26.456710000000000000
-          ShowHint = False
-          DataField = 'tgl_kembali'
-          DataSet = frxDBDatasetAnggota
-          DataSetName = 'frxDBDataset1'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Arial'
-          Font.Style = []
-          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
-          Frame.Width = 2.000000000000000000
-          HAlign = haCenter
-          Memo.UTF8 = (
-            '[frxDBDataset1."tgl_kembali"]')
-          ParentFont = False
-          VAlign = vaCenter
-        end
-        object Memo9: TfrxMemoView
-          Left = 439.361007230000000000
-          Width = 146.466142770000000000
-          Height = 26.456710000000000000
-          ShowHint = False
           DataField = 'no_pinjam'
-          DataSet = frxDBDatasetAnggota
+          DataSet = frxdbdtstAnggota
           DataSetName = 'frxDBDataset1'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
@@ -422,6 +387,48 @@ object FormPengembalian: TFormPengembalian
           ParentFont = False
           VAlign = vaCenter
         end
+        object Memo8: TfrxMemoView
+          Left = 292.894864460000000000
+          Width = 146.466142770000000000
+          Height = 26.456710000000000000
+          ShowHint = False
+          DataField = 'kode_buku'
+          DataSet = frxdbdtstAnggota
+          DataSetName = 'frxDBDataset1'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 2.000000000000000000
+          HAlign = haCenter
+          Memo.UTF8 = (
+            '[frxDBDataset1."kode_buku"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo9: TfrxMemoView
+          Left = 439.361007230000000000
+          Width = 146.466142770000000000
+          Height = 26.456710000000000000
+          ShowHint = False
+          DataField = 'jenis_buku'
+          DataSet = frxdbdtstAnggota
+          DataSetName = 'frxDBDataset1'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = [ftLeft, ftRight, ftTop, ftBottom]
+          Frame.Width = 2.000000000000000000
+          HAlign = haCenter
+          Memo.UTF8 = (
+            '[frxDBDataset1."jenis_buku"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
       end
       object Footer1: TfrxFooter
         Height = 41.574830000000000000
@@ -430,9 +437,17 @@ object FormPengembalian: TFormPengembalian
       end
     end
   end
-  object dsanggota: TDataSource
+  object dsdetailisi: TDataSource
     DataSet = zqry1
     Left = 144
     Top = 432
+  end
+  object zqry2: TZQuery
+    Connection = ZConnection1
+    SQL.Strings = (
+      'select*from buku')
+    Params = <>
+    Left = 342
+    Top = 428
   end
 end

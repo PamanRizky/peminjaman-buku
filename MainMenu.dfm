@@ -39,6 +39,22 @@ object FormMainMenu: TFormMainMenu
         Caption = 'Form Pengembalian'
         OnClick = FormPengembalian1Click
       end
+      object FormBuku1: TMenuItem
+        Caption = 'Form Buku'
+        OnClick = FormBuku1Click
+      end
+      object FormPeminjaman1: TMenuItem
+        Caption = 'Form Peminjaman'
+        OnClick = FormPeminjaman1Click
+      end
+      object FormDetailIsi1: TMenuItem
+        Caption = 'Form Detail Isi'
+        OnClick = FormDetailIsi1Click
+      end
+    end
+    object Keluar1: TMenuItem
+      Caption = 'Keluar'
+      OnClick = Keluar1Click
     end
   end
 end

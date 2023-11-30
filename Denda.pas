@@ -6,7 +6,7 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, ComCtrls, DB, frxClass, frxDBSet, ZAbstractRODataset,
   ZAbstractDataset, ZDataset, ZAbstractConnection, ZConnection, Grids,
-  DBGrids, StdCtrls;
+  DBGrids, StdCtrls, Buttons;
 
 type
   TFormDenda = class(TForm)
@@ -32,6 +32,7 @@ type
     lbl5: TLabel;
     Edtjenisdenda: TEdit;
     dtp1: TDateTimePicker;
+    btn1: TBitBtn;
     procedure edtbersih;
     procedure edtenable;
     procedure posisiawal;
@@ -43,6 +44,7 @@ type
     procedure bhapusClick(Sender: TObject);
     procedure beditClick(Sender: TObject);
     procedure bprintClick(Sender: TObject);
+    procedure btn1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -209,6 +211,11 @@ end;
 procedure TFormDenda.bprintClick(Sender: TObject);
 begin
 frxReport1.ShowReport();
+end;
+
+procedure TFormDenda.btn1Click(Sender: TObject);
+begin
+close
 end;
 
 end.

@@ -166,10 +166,21 @@ object FormPengembalian: TFormPengembalian
     Time = 45259.833535949070000000
     TabOrder = 9
   end
+  object btn1: TBitBtn
+    Left = 648
+    Top = 112
+    Width = 75
+    Height = 33
+    Caption = '&Close'
+    TabOrder = 10
+    OnClick = btn1Click
+  end
   object ZConnection1: TZConnection
     ControlsCodePage = cGET_ACP
+    AutoEncodeStrings = True
     Properties.Strings = (
-      'controls_cp=GET_ACP')
+      'controls_cp=GET_ACP'
+      'AutoEncodeStrings=True')
     Connected = True
     HostName = 'localhost'
     Port = 3306
@@ -206,7 +217,7 @@ object FormPengembalian: TFormPengembalian
     PrintOptions.Printer = 'Default'
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 45259.647033055600000000
-    ReportOptions.LastChange = 45259.844810925930000000
+    ReportOptions.LastChange = 45261.244109699070000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       'begin'
@@ -240,7 +251,7 @@ object FormPengembalian: TFormPengembalian
         object Memo1: TfrxMemoView
           Left = 234.330860000000000000
           Top = 11.338590000000000000
-          Width = 260.787570000000000000
+          Width = 317.480520000000000000
           Height = 18.897650000000000000
           ShowHint = False
           Font.Charset = DEFAULT_CHARSET
@@ -249,7 +260,7 @@ object FormPengembalian: TFormPengembalian
           Font.Name = 'Arial'
           Font.Style = [fsBold]
           Memo.UTF8 = (
-            'LAPORAN DATA ANGGOTA')
+            'LAPORAN DATA PENGEMBALIAN')
           ParentFont = False
         end
       end

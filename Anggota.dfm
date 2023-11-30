@@ -187,10 +187,21 @@ object FormAnggota: TFormAnggota
     Height = 21
     TabOrder = 10
   end
+  object btn1: TBitBtn
+    Left = 648
+    Top = 112
+    Width = 75
+    Height = 33
+    Caption = '&Close'
+    TabOrder = 11
+    OnClick = btn1Click
+  end
   object ZConnection1: TZConnection
     ControlsCodePage = cGET_ACP
+    AutoEncodeStrings = True
     Properties.Strings = (
-      'controls_cp=GET_ACP')
+      'controls_cp=GET_ACP'
+      'AutoEncodeStrings=True')
     Connected = True
     HostName = 'localhost'
     Port = 3306

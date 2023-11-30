@@ -5,7 +5,8 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, DB, frxClass, frxDBSet, ZAbstractRODataset, ZAbstractDataset,
-  ZDataset, ZAbstractConnection, ZConnection, Grids, DBGrids, StdCtrls;
+  ZDataset, ZAbstractConnection, ZConnection, Grids, DBGrids, StdCtrls,
+  Buttons;
 
 type
   TFormPetugas = class(TForm)
@@ -29,6 +30,7 @@ type
     frxDBDatasetPetugas: TfrxDBDataset;
     frxReport1: TfrxReport;
     dspetugas: TDataSource;
+    btn1: TBitBtn;
     procedure edtbersih;
     procedure edtenable;
     procedure posisiawal;
@@ -40,6 +42,7 @@ type
     procedure bhapusClick(Sender: TObject);
     procedure beditClick(Sender: TObject);
     procedure bprintClick(Sender: TObject);
+    procedure btn1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -202,6 +205,11 @@ end;
 procedure TFormPetugas.bprintClick(Sender: TObject);
 begin
   frxReport1.ShowReport();
+end;
+
+procedure TFormPetugas.btn1Click(Sender: TObject);
+begin
+              close
 end;
 
 end.

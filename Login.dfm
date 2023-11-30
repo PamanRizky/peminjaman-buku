@@ -1,8 +1,8 @@
 object FormLogin: TFormLogin
   Left = 192
   Top = 152
-  Width = 1044
-  Height = 540
+  Width = 430
+  Height = 220
   Caption = 'FormLogin'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -74,6 +74,7 @@ object FormLogin: TFormLogin
     ControlsCodePage = cGET_ACP
     Properties.Strings = (
       'controls_cp=GET_ACP')
+    Connected = True
     HostName = 'localhost'
     Port = 3306
     Database = 'db_peminjaman_buku'
